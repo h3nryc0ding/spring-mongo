@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "app.labels" . | nindent 4 }}
 data:
-  MONGODB_HOST: {{ include "mongodb.service.nameOverride" . | quote }}
+  MONGODB_HOST: {{ include "mongodb.service.nameOverride" .Subcharts.mongodb | quote }}
   MONGODB_PORT: {{ .Values.mongodb.service.ports.mongodb | quote }}
   MONGODB_USERNAME: {{ .Values.mongodb.auth.username | quote }}
   MONGODB_DATABASE: {{ .Values.mongodb.auth.database | quote }}
