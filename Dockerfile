@@ -11,7 +11,5 @@ COPY --from=build /home/gradle/build/libs/*.jar app.jar
 
 EXPOSE 8080
 ENV SPRING_PROFILES_ACTIVE=production
-HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
-  CMD wget -q --spider http://localhost:8081/actuator/health || exit 1
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
